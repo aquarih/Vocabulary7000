@@ -7,22 +7,151 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="menu">
+    <div class="sidebar">
         <div class="top">
             <i class="bx bx-menu-alt-left" id="btn"></i>
         </div>
         <div class="user">
-            <img src="">
+            <img src="../../static/img/nadeshiko2.jpg" class="user-img">
+            <div>
+                <p class="bold">Asteria</p>
+                <p>Admin</p>
+            </div>
         </div>
-        <nav>
+        <ul class="nav-links">
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bx-home-alt"></i>
+                        <span class="nav-item">班級管理</span>
+                    </div>
+                    <i class="bx bxs-chevron-down dropdown"></i>
+<!--                    <span class="tooltip">班級管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">班級列表</a></li>
+                    <li><a href="#">學生管理</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">班級列表</a></li>
+                    <li><a href="#">學生管理</a></li>
+                </ul>
+            </li>
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bx-edit"></i>
+                        <span class="nav-item">單字管理</span>
+                    </div>
+                    <i class="bx bxs-chevron-down dropdown"></i>
+<!--                    <span class="tooltip">單字管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">單字列表</a></li>
+                    <li><a href="#">新增單一單字</a></li>
+                    <li><a href="#">新增多個單字</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">單字列表</a></li>
+                    <li><a href="#">新增單一單字</a></li>
+                    <li><a href="#">新增多個單字</a></li>
+                </ul>
+            </li>
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bx-book"></i>
+                        <span class="nav-item">教材管理</span>
+                    </div>
+                    <i class="bx bxs-chevron-down dropdown"></i>
+                    <!--                <span class="tooltip">教材管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">教材列表</a></li>
+                    <li><a href="#">新增教材</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">教材列表</a></li>
+                    <li><a href="#">新增教材</a></li>
+                </ul>
+            </li>
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bx-cabinet"></i>
+                        <span class="nav-item">字卡堆管理</span>
+                    </div>
+                        <i class="bx bxs-chevron-down dropdown"></i>
+                    <!--                <span class="tooltip">字卡堆管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">字卡堆列表</a></li>
+                    <li><a href="#">新增字卡堆</a></li>
+                    <li><a href="#">匯入單字</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">字卡堆列表</a></li>
+                    <li><a href="#">新增字卡堆</a></li>
+                    <li><a href="#">匯入單字</a></li>
+                </ul>
+            </li>
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bxs-book-add"></i>
+                        <span class="nav-item">七千單管理</span>
+                    </div>
+                    <i class="bx bxs-chevron-down dropdown"></i>
+                    <!--                <span class="tooltip">七千單管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">七千單列表</a></li>
+                    <li><a href="#">匯入七千單</a></li>
+                    <li><a href="#">閱讀識字工具</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">七千單列表</a></li>
+                    <li><a href="#">匯入七千單</a></li>
+                    <li><a href="#">閱讀識字工具</a></li>
+                </ul>
+        </ul>
+        <div>
             <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Posts</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Pages</a></li>
+                <li class="logout-selection">
+                    <a href="#">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <!--                <span class="tooltip">Logout</span>-->
+                </li>
             </ul>
-        </nav>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>匯入七千單</h1>
+        </div>
+        <label>
+            <input value="hello">
+        </label>
     </div>
 </body>
+
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+    let dropdown = document.querySelectorAll('.dropdown');
+    let menu_selection = document.querySelectorAll('.menu_selection');
+
+    btn.onclick = function () {
+        sidebar.classList.toggle('active');
+    };
+
+    for (let i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener('click', function(e) {
+            menu_selection[i].classList.toggle('drop');
+        });
+    }
+</script>
 </html>
