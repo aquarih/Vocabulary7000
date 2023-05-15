@@ -20,7 +20,7 @@ h3 {
 }
 
 .bg-primary {
-    background: rgba(34, 202, 75);;
+    background: rgba(34, 202, 75);
 }
 
 .bg-alert {
@@ -419,8 +419,7 @@ input[data-placeholder]::before {
 
 .recent-detail .detail .operation {
     position: relative;
-    display: flex;
-    width: 100%;
+    right: 0;
 }
 
 .recent-detail .detail table {
@@ -567,11 +566,16 @@ input[type=radio] {
     padding-top: 20px;
 }
 
+/*#list-container {*/
+/*    display: inline;*/
+/*    !*align-items: center;*!*/
+/*}*/
+
 .todo {
     width: 100%;
     max-width: 440px;
     background: white;
-    padding: 40px 30px 70px;
+    padding: 40px 30px ;
     margin: 100px 30px 20px;
     border-radius: 2rem;
 }
@@ -606,17 +610,49 @@ input[type=radio] {
 }
 
 .todo ul li {
+    position: relative;
     list-style: none;
-    font-size: 17px;
+    font-size: 16px;
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
 }
 
-ul li::before {
+.todo ul li::before {
     content: '';
     position: absolute;
-    height: 28px;
-    width: 28px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
+    background-image: url("../img/checkbox.png");
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+}
+
+.todo ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+.todo ul li.checked::before {
+    background-image: url("../img/checked.png");
+}
+
+.todo ul li span {
+    position: absolute;
+    right: 0;
+    /*top: 5px;*/
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: #555;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.todo ul li span:hover {
+    background: #edeef0;
 }

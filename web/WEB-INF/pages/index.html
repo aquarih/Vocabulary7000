@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="../../static/css/import_voc.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -150,9 +151,9 @@
             <div class="container">
                 <h1>時數管理</h1>
                 <label class="date_selector">
-                    <input type="date" data-placeholder="開始日期" required>
+                    <input type="date" data-placeholder="開始日期" id="date-start" onchange="start()" required>
                     -
-                    <input type="date" data-placeholder="結束日期" required>
+                    <input type="date" data-placeholder="結束日期" id="date-end" onchange="end()" required>
                 </label>
             </div>
             <div class="monthly-report">
@@ -321,12 +322,12 @@
                 <div class="todo">
                     <div class="row">
                         <input type="text" id="input-box" placeholder="Add your text">
-                        <button>Add</button>
+                        <button onclick="addTask()">Add</button>
                     </div>
                     <ul id="list-container">
-                        <li>Task 1</li>
-                        <li>Task 2</li>
-                        <li>Task 3</li>
+<!--                        <li class="checked">Task 1</li>-->
+<!--                        <li>Task 2</li>-->
+<!--                        <li>Task 3</li>-->
                     </ul>
                 </div>
             </div>
@@ -335,6 +336,7 @@
 </body>
 
 <script>
+    /*sidebar*/
     let btn = document.querySelector('#btn');
     let sidebar = document.querySelector('.sidebar');
     let dropdown = document.querySelectorAll('.dropdown');
@@ -349,5 +351,88 @@
             menu_selection[i].classList.toggle('drop');
         });
     }
+
+    /*date*/
+    let date_start;
+    let date_end;
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    document.getElementById("date-start").setAttribute("max", today);
+    document.getElementById("date-end").setAttribute("max", today);
+    //not yet: min為第一筆資料
+
+    console.log(today)
+
+    function start(){
+        date_start = $('#date-start').val();
+        console.log(date_start)
+
+        if (date_start != null) {
+            document.getElementById("date-end").setAttribute("min", date_start);
+        }
+    }
+
+    function end() {
+        date_end = $('#date-end').val();
+        console.log(date_end)
+
+        if (date_end != null) {
+            document.getElementById("date-start").setAttribute("max", date_end);
+        }
+    }
+
+    /*todolist*/
+    const inputBox = document.getElementById("input-box");
+    const listContainer = document.getElementById("list-container");
+
+    function addTask() {
+        if (inputBox.value === '') {
+            alert ("You must write SOMETHING");
+        } else {
+            let li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            listContainer.appendChild(li);
+            let span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+            li.appendChild(span);
+            saveData();
+        }
+
+        inputBox.value = '';
+    }
+
+    listContainer.addEventListener("click", function (e) {
+        if(e.target.tagName === "LI") {
+            e.target.classList.toggle("checked");
+            saveData();
+        } else if (e.target.tagName === "SPAN") {
+            e.target.parentElement.remove();
+            saveData();
+        }
+    }, false);
+
+    function saveData() {
+        localStorage.setItem("data", listContainer.innerHTML);
+    }
+
+    function showTask() {
+        listContainer.innerHTML = localStorage.getItem("data");
+    }
+
+    showTask();
 </script>
 </html>
