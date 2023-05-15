@@ -12,7 +12,7 @@
             <i class="bx bx-menu-alt-left" id="btn"></i>
         </div>
         <div class="user">
-            <img src="../../static/img/nadeshiko2.jpg" class="user-img">
+            <img src="../../static/img/nadeshiko2.jpg" class="user-img" alt="">
             <div>
                 <p class="bold">Asteria</p>
                 <p>Admin</p>
@@ -114,6 +114,23 @@
                     <li><a href="#">匯入七千單</a></li>
                     <li><a href="#">閱讀識字工具</a></li>
                 </ul>
+            </li>
+            <li class="menu_selection">
+                <div class="icon-link">
+                    <div class="link">
+                        <i class="bx bxs-briefcase"></i>
+                        <span class="nav-item">行政管理</span>
+                    </div>
+                    <i class="bx bxs-chevron-down dropdown"></i>
+                    <!--                <span class="tooltip">七千單管理</span>-->
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#">時數管理</a></li>
+                </ul>
+                <ul class="tooltip">
+                    <li><a href="#">時數管理</a></li>
+                </ul>
+            </li>
         </ul>
         <div>
             <ul>
@@ -129,12 +146,191 @@
     </div>
 
     <div class="main-content">
-        <div class="container">
-            <h1>匯入七千單</h1>
+        <div class="left-body">
+            <div class="container">
+                <h1>時數管理</h1>
+                <label class="date_selector">
+                    <input type="date" data-placeholder="開始日期" required>
+                    -
+                    <input type="date" data-placeholder="結束日期" required>
+                </label>
+            </div>
+            <div class="monthly-report">
+                <div class="card">
+                    <i class="bx bxs-bar-chart-alt-2"></i>
+                    <div class="top">
+                        <h3>期間總時數</h3>
+                        <detail>
+                            <h1>40 hr 27 min</h1>
+                            <h6 class="success">+3.5%</h6>
+                        </detail>
+                    </div>
+                    <p class="text-muted">相較於上個月</p>
+                </div>
+                <div class="category">
+                    <h2>工作類別</h2>
+                    <div class="badges">
+                        <div class="badge">
+                            <i class="bx bx-plus"></i>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-primary"></span>
+                            <div>
+                                <h5>單字複習卷</h5>
+                                <h4>30 hr</h4>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-alert"></span>
+                            <div>
+                                <h5>句型整理</h5>
+                                <h4>10 hr 37 min</h4>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-primary"></span>
+                            <div>
+                                <h5>app單字</h5>
+                                <h4>6 hr 30 min</h4>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-purple"></span>
+                            <div>
+                                <h5>總複習卷</h5>
+                                <h4>7 hr 30 min</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-detail">
+                <h2>近期資料</h2>
+                <div class="detail">
+                    <div class="operation">
+                        <i class='bx bxs-message-square-add' ></i>
+                        <i class='bx bxs-trash-alt'></i>
+                    </div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>工作類別</th>
+                            <th>日期</th>
+                            <th>計時時間</th>
+                            <th>備註</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td><i class='bx bxs-trash-alt' ></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="#">Show All</a>
+            </div>
         </div>
-        <label>
-            <input value="hello">
-        </label>
+        <div class="right-body">
+            <div>
+<!--                <h2>計時器</h2>-->
+                <div class="pomodoro">
+                    <div id="pomodoro-durations">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios1" value="work" checked="">
+                            <label class="form-check-label btn" for="exampleRadios1">
+                                Working
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios2" value="watch">
+                            <label class="form-check-label btn" for="exampleRadios2">
+                                Short break
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios3" value="watch">
+                            <label class="form-check-label btn" for="exampleRadios3">
+                                Long break
+                            </label>
+                        </div>
+                    </div>
+                    <div id="pomodoro-timer">25:00</div>
+                    <div id="pomodoro-clock-actions">
+                        <button id="pomodoro-start" class="btn btn-primary">
+                            <span class="" id="play-icon">Start</span>
+                            <span class="hidden" id="pause-icon">Pause</span>
+                        </button>
+                        <button id="pomodoro-stop" class="no-style">
+                            <i class='bx bx-revision' ></i>
+                        </button>
+                        <button id="pomodoro-settings" class="no-style" data-bs-toggle="modal" data-bs-target="#settingsModal" type="button" data-bs-original-title="" title="">
+                            <i class='bx bxs-cog bx-flip-horizontal' ></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todo-list">
+                <h2>待辦清單</h2>
+                <div class="todo">
+                    <div class="row">
+                        <input type="text" id="input-box" placeholder="Add your text">
+                        <button>Add</button>
+                    </div>
+                    <ul id="list-container">
+                        <li>Task 1</li>
+                        <li>Task 2</li>
+                        <li>Task 3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
