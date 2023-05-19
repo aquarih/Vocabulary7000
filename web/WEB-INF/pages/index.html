@@ -170,10 +170,37 @@
                 </div>
                 <div class="category">
                     <h2>工作類別</h2>
-                    <div class="badges">
-                        <div class="badge">
-                            <i class="bx bx-plus"></i>
+                    <div class="modal" id="popupModal">
+                        <div class="overlay"></div>
+                        <div class="modal-content">
+                            <div class="modal-header">
+<!--                                <span class="close">&times;</span>-->
+                                <h1>新增工作類別</h1>
+                            </div>
+                            <div class="modal-body">
+                                <div class="inputBox catNameBox">
+                                    <input type="text" required="required">
+                                    <span>類別名稱</span>
+                                </div>
+                                <div class="inputBox userBox">
+                                    <input type="text" required="required">
+                                    <span>員工姓名</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="controls">
+                                    <button class="close-btn">關閉</button>
+                                    <button class="submit-btn">新增</button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="badges">
+                        <button id="addCategoriesBtn">
+                            <div class="badge">
+                                <i class="bx bx-plus"></i>
+                            </div>
+                        </button>
                         <div class="badge">
                             <span class="bg-primary"></span>
                             <div>
@@ -202,16 +229,82 @@
                                 <h4>7 hr 30 min</h4>
                             </div>
                         </div>
+                        <div class="badge">
+                            <span class="bg-primary"></span>
+                            <div>
+                                <h5>單字複習卷</h5>
+                                <h4>30 hr</h4>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-alert"></span>
+                            <div>
+                                <h5>句型整理</h5>
+                                <h4>10 hr 37 min</h4>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="bg-primary"></span>
+                            <div>
+                                <h5>app單字</h5>
+                                <h4>6 hr 30 min</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="recent-detail">
-                <h2>近期資料</h2>
-                <div class="detail">
-                    <div class="operation">
-                        <i class='bx bxs-message-square-add' ></i>
-                        <i class='bx bxs-trash-alt'></i>
+                <div class="topBar">
+                    <h2>近期資料</h2>
+                    <div class="modal" id="detailModal">
+                        <div class="overlay"></div>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--                                <span class="close">&times;</span>-->
+                                <h1>新增紀錄</h1>
+                            </div>
+                            <div class="modal-body">
+                                <div class="inputBox catNameBox">
+                                    <input type="text" required="required">
+                                    <span>工作類別</span>
+                                </div>
+                                <div class="inputBox dateBox">
+                                    <input type="date" required="required">
+                                    <span>日期</span>
+                                </div>
+                                <div class="inputBox timeBox">
+                                    <input type="text" required="required">
+                                    <span>計時時間</span>
+                                </div>
+                                <div class="inputBox noteBox">
+                                    <input type="text" required="required">
+                                    <span>備註</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="controls">
+                                    <button class="close-btn">關閉</button>
+                                    <button class="submit-btn">新增</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="search">
+                        <span class="icon"><i class='bx bx-search'></i></span>
+                        <div class="input">
+                            <input type="search" id="search" placeholder="搜尋員工姓名" />
+                        </div>
+                    </div>
+                    <button class="button-38" id="addRecord" role="button">
+                        <span class="icon"><i class='bx bx-list-plus' ></i></span>
+                        新增紀錄
+                    </button>
+                    <button class="button-38" id="deleteRecord" role="button">
+                        <span class="icon"><i class='bx bxs-trash-alt' ></i></span>
+                        刪除紀錄
+                    </button>
+                </div>
+                <div class="detail">
                     <table>
                         <thead>
                         <tr>
@@ -220,7 +313,7 @@
                             <th>日期</th>
                             <th>計時時間</th>
                             <th>備註</th>
-                            <th></th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -229,8 +322,11 @@
                             <td>單字複習卷</td>
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
-                            <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>asjfij3.wilekjnkas.jhfvo;IAJMKL.SHDNSA;ASDJQWIJF.ASKDJASKLD.ASDLASJDKLWQOUEPWIRUPQWIEUQPWOEUPQOWUEPQUWEP</td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         <tr>
                             <td>Astria H.</td>
@@ -238,7 +334,10 @@
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
                             <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         <tr>
                             <td>Astria H.</td>
@@ -246,7 +345,10 @@
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
                             <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         <tr>
                             <td>Astria H.</td>
@@ -254,7 +356,10 @@
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
                             <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         <tr>
                             <td>Astria H.</td>
@@ -262,7 +367,10 @@
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
                             <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         <tr>
                             <td>Astria H.</td>
@@ -270,12 +378,26 @@
                             <td>9 Dec, 2023</td>
                             <td>5 hr</td>
                             <td>全部完成</td>
-                            <td><i class='bx bxs-trash-alt' ></i></td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Astria H.</td>
+                            <td>單字複習卷</td>
+                            <td>9 Dec, 2023</td>
+                            <td>5 hr</td>
+                            <td>全部完成</td>
+                            <td>
+                                <i class='bx bxs-pencil' ></i>
+                                <i class='bx bxs-trash-alt' ></i>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <a href="#">Show All</a>
+<!--                <a href="#">Show All</a>-->
             </div>
         </div>
         <div class="right-body">
@@ -284,32 +406,48 @@
                 <div class="pomodoro">
                     <div id="pomodoro-durations">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios1" value="work" checked="">
-                            <label class="form-check-label btn" for="exampleRadios1">
+                            <input class="form-check-input" type="radio" name="timerType" id="working" value="work">
+                            <label class="form-check-label btn" for="working">
                                 Working
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios2" value="watch">
-                            <label class="form-check-label btn" for="exampleRadios2">
+                            <input class="form-check-input" type="radio" name="timerType" id="pomodoro">
+                            <label class="form-check-label btn" for="pomodoro">
+                                Pomodoro
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timerType" id="shortBreak" value="watch">
+                            <label class="form-check-label btn" for="shortBreak">
                                 Short break
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="timerType" id="exampleRadios3" value="watch">
-                            <label class="form-check-label btn" for="exampleRadios3">
+                            <input class="form-check-input" type="radio" name="timerType" id="longBreak" value="watch">
+                            <label class="form-check-label btn" for="longBreak">
                                 Long break
                             </label>
                         </div>
                     </div>
-                    <div id="pomodoro-timer">25:00</div>
+                    <div id="pomodoro-timer">
+<!--                        <div class="hourSection">-->
+<!--                            <p id="hours">01</p>-->
+<!--                            <p>:</p>-->
+<!--                        </div>-->
+                        <p id="minutes"></p>
+                        <p>:</p>
+                        <p id="seconds"></p>
+                    </div>
                     <div id="pomodoro-clock-actions">
                         <button id="pomodoro-start" class="btn btn-primary">
                             <span class="" id="play-icon">Start</span>
-                            <span class="hidden" id="pause-icon">Pause</span>
+                        </button>
+                        <button id="pomodoro-pause" class="btn btn-primary hidden">
+                            <span id="pause-icon">Pause</span>
                         </button>
                         <button id="pomodoro-stop" class="no-style">
-                            <i class='bx bx-revision' ></i>
+                            <i class='bx bx-stop'></i>
                         </button>
                         <button id="pomodoro-settings" class="no-style" data-bs-toggle="modal" data-bs-target="#settingsModal" type="button" data-bs-original-title="" title="">
                             <i class='bx bxs-cog bx-flip-horizontal' ></i>
@@ -335,104 +473,5 @@
     </div>
 </body>
 
-<script>
-    /*sidebar*/
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-    let dropdown = document.querySelectorAll('.dropdown');
-    let menu_selection = document.querySelectorAll('.menu_selection');
-
-    btn.onclick = function () {
-        sidebar.classList.toggle('active');
-    };
-
-    for (let i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener('click', function(e) {
-            menu_selection[i].classList.toggle('drop');
-        });
-    }
-
-    /*date*/
-    let date_start;
-    let date_end;
-
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-
-    document.getElementById("date-start").setAttribute("max", today);
-    document.getElementById("date-end").setAttribute("max", today);
-    //not yet: min為第一筆資料
-
-    console.log(today)
-
-    function start(){
-        date_start = $('#date-start').val();
-        console.log(date_start)
-
-        if (date_start != null) {
-            document.getElementById("date-end").setAttribute("min", date_start);
-        }
-    }
-
-    function end() {
-        date_end = $('#date-end').val();
-        console.log(date_end)
-
-        if (date_end != null) {
-            document.getElementById("date-start").setAttribute("max", date_end);
-        }
-    }
-
-    /*todolist*/
-    const inputBox = document.getElementById("input-box");
-    const listContainer = document.getElementById("list-container");
-
-    function addTask() {
-        if (inputBox.value === '') {
-            alert ("You must write SOMETHING");
-        } else {
-            let li = document.createElement("li");
-            li.innerHTML = inputBox.value;
-            listContainer.appendChild(li);
-            let span = document.createElement("span");
-            span.innerHTML = "\u00d7";
-            li.appendChild(span);
-            saveData();
-        }
-
-        inputBox.value = '';
-    }
-
-    listContainer.addEventListener("click", function (e) {
-        if(e.target.tagName === "LI") {
-            e.target.classList.toggle("checked");
-            saveData();
-        } else if (e.target.tagName === "SPAN") {
-            e.target.parentElement.remove();
-            saveData();
-        }
-    }, false);
-
-    function saveData() {
-        localStorage.setItem("data", listContainer.innerHTML);
-    }
-
-    function showTask() {
-        listContainer.innerHTML = localStorage.getItem("data");
-    }
-
-    showTask();
-</script>
+<script type="text/javascript" src="../../static/js/timeWork.js"></script>
 </html>

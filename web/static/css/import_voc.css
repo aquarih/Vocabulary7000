@@ -20,15 +20,15 @@ h3 {
 }
 
 .bg-primary {
-    background: rgba(34, 202, 75);
+    background: #00AA90;
 }
 
 .bg-alert {
-    background: red;
+    background: #F17C67;
 }
 
 .bg-purple {
-    background: plum;
+    background: #9B90C2;
 }
 
 .sidebar .top {
@@ -306,6 +306,7 @@ input[type = 'date']::-webkit-calendar-picker-indicator {
 
 input[type = 'date']::before {
     content: attr(data-placeholder);
+    line-height: 19px;
     width: 100%;
 }
 input[type = 'date']:valid::before {
@@ -366,6 +367,142 @@ input[data-placeholder]::before {
     /*gap: 2rem;*/
 }
 
+.monthly-report .category #addCategoriesBtn {
+    border: none;
+}
+
+.modal {
+    /*display: none; !* Hidden by default *!*/
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: -100vh;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    transition: top 0ms ease-in-out 300ms;
+}
+
+.modal .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgb(0,0,0); !* Fallback color *!*/
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    opacity: 0;
+    transition: opacity 100ms ease-in-out 200ms;
+}
+
+/* Modal Content/Box */
+.modal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+    transform: scale(1.15);
+    opacity: 0;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 300ms ease-in-out;
+}
+
+.modal .modal-header {
+    margin: 10px 10px;
+}
+
+.modal .modal-body {
+    box-sizing: border-box;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal .inputBox {
+    position: relative;
+    width: 310px;
+}
+
+.modal .inputBox input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid rgba(29, 43, 58, 0.25);
+    outline: none;
+    font-size: 1em;
+    transition: 0.2s;
+}
+
+.modal .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #555;
+    line-height: 21px;
+    transition: 0.2s;
+}
+
+.modal .inputBox input:valid ~ span,
+.modal .inputBox input:focus ~ span {
+    transform: translateX(5px) translateY(-19px);
+    font-size: 0.9em;
+    padding: 2px 5px;
+    background: #707C74;
+    color: #FCFAF2;
+    border-radius: 4px;
+}
+
+.modal .inputBox input:valid,
+.modal .inputBox input:focus {
+    border: 1px solid #707C74;
+}
+
+.modal .controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0;
+}
+
+.modal .controls button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.modal .controls .close-btn {
+    background: transparent;
+    color: #2E5C6E;
+}
+
+.modal .controls .submit-btn {
+    background: #2E5C6E;
+    color: #FCFAF2;
+}
+
+.modal.active {
+    top: 0;
+    transition: top 0ms ease-in-out 0ms;
+}
+
+.modal.active .overlay {
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
 .monthly-report .category .badges {
     margin-top: 1.3rem;
     display: flex;
@@ -394,6 +531,7 @@ input[data-placeholder]::before {
 .monthly-report .category .badge div {
     display: flex;
     gap: 1rem;
+    line-height: 19px;
     align-self: center;
 }
 
@@ -410,16 +548,112 @@ input[data-placeholder]::before {
     margin-bottom: 1.5rem;
 }
 
+.recent-detail .topBar {
+    display: flex;
+    gap: 15px;
+    align-content: center;
+}
+
+.recent-detail .topBar .search {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 35px;
+    transition: 0.5s;
+    /*box-shadow: 0 0 0 5px ;*/
+    overflow: hidden;
+}
+
+.recent-detail .topBar .search.active {
+    width: 200px;
+}
+
+.recent-detail .topBar .search .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #707C74;
+}
+
+.recent-detail .topBar .search .input {
+    position: relative;
+    width: 150px;
+    height: 35px;
+    left: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.recent-detail .topBar .search .input input {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+}
+
+.recent-detail .topBar .search .input input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+                                                       /* CSS */
+.button-38 {
+    height: 35px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background-color: #D7B98E;
+    border: 0;
+    border-radius: .5rem;
+    color: #FCFAF2;
+    font-size: .875rem;
+    font-weight: 400;
+    padding: .75rem 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.button-38 .icon {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.button-38:hover {
+    background-color: rgba(215, 185, 142, 0.78);
+}
+
+.button-38:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+    box-shadow: none;
+}
+
 .recent-detail .detail {
     background: white;
     width: 100%;
+    height: 52vh;
     border-radius: 2rem;
     padding: 1.7rem;
 }
 
-.recent-detail .detail .operation {
-    position: relative;
-    right: 0;
+#list-container::-webkit-scrollbar {
+    display: none;
 }
 
 .recent-detail .detail table {
@@ -427,9 +661,34 @@ input[data-placeholder]::before {
     text-align: center;
 }
 
+.recent-detail .detail thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.recent-detail .detail thead {
+    /*width: calc(100% - 1rem);*/
+    padding-bottom: 10px;
+}
+
+.recent-detail .detail tbody {
+    display: block;
+    height: 390px;
+    overflow-y: scroll;
+}
+
+.detail tbody::-webkit-scrollbar {
+    display: none;
+}
+
 .recent-detail .detail tbody td {
     height: 3.5rem;
     border-bottom: 1px solid lightgrey;
+    line-height: 19px;
+    word-break: break-all;
+    word-wrap : break-word;
+    width: 2px;
 }
 
 .recent-detail .detail tbody tr:last-child td {
@@ -452,8 +711,7 @@ input[data-placeholder]::before {
 
 .pomodoro {
     position: relative;
-    left: 10px;
-    top: 80px;
+    top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -467,6 +725,10 @@ input[data-placeholder]::before {
 }
 
 #pomodoro-timer {
+    display: flex;
+}
+
+#pomodoro-timer p {
     font-size: 7rem;
     letter-spacing: -0.25rem;
     font-variant-numeric: tabular-nums;
@@ -476,6 +738,10 @@ input[data-placeholder]::before {
     font-family: "Space Grotesk",sans-serif;
     font-weight: 600;
     color: #6f6f6f;
+}
+
+#pomodoro-timer .hourSection {
+    display: flex;
 }
 
 input[type=radio] {
@@ -523,20 +789,13 @@ input[type=radio] {
     border: none;
 }
 
-.btn-primary:active #play-icon {
-    display: none;
-}
-
-.btn-primary .hidden {
+.btn-primary.hidden {
     display: none;
 }
 .btn-primary:active {
     color: black;
     box-shadow: inset -4px -2px 4px #ffffff,
     inset 4px 2px 8px #d1d9e6;
-}
-.btn-primary:active .hidden {
-    display: grid;
 }
 
 .no-style {
@@ -556,24 +815,20 @@ input[type=radio] {
     border: none;
 }
 
-.no-style:hover {
+.no-style:active {
     color: black;
     box-shadow: inset -4px -2px 4px #ffffff,
     inset 4px 2px 8px #d1d9e6;
 }
 
-.todo-list {
-    padding-top: 20px;
+.todo-list h2 {
+    width: 100px;
 }
 
-/*#list-container {*/
-/*    display: inline;*/
-/*    !*align-items: center;*!*/
-/*}*/
-
 .todo {
+    height: 49.7vh;
     width: 100%;
-    max-width: 440px;
+    max-width: 450px;
     background: white;
     padding: 40px 30px ;
     margin: 100px 30px 20px;
@@ -602,20 +857,34 @@ input[type=radio] {
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ff5945;
+    background: #2E5C6E;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
+}
+
+#list-container {
+    max-height: 30vh;
+    overflow:auto;
+}
+
+#list-container::-webkit-scrollbar {
+    display: none;
 }
 
 .todo ul li {
     position: relative;
+    display: inline-list-item;
     list-style: none;
     font-size: 16px;
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
+    line-height: 19px;
+    word-break: break-all;
+    word-wrap : break-word;
+    width: 350px;
 }
 
 .todo ul li::before {
@@ -627,7 +896,7 @@ input[type=radio] {
     background-image: url("../img/checkbox.png");
     background-size: cover;
     background-position: center;
-    top: 8px;
+    top: 7px;
     left: 8px;
 }
 
@@ -642,15 +911,23 @@ input[type=radio] {
 
 .todo ul li span {
     position: absolute;
+    left: 350px;
     right: 0;
-    /*top: 5px;*/
+    top: 5px;
     width: 30px;
     height: 30px;
     font-size: 22px;
     color: #555;
-    line-height: 30px;
+    line-height: 28px;
     text-align: center;
     border-radius: 50%;
+}
+
+.todo #emptyList {
+    text-align: center;
+    display:block;
+    color: #6f6f6f;
+    width: 350px;
 }
 
 .todo ul li span:hover {
